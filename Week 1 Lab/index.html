@@ -5,6 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 1 | Demo</title>
+
+    <!--in-document CSS below-->
+    <style type="text/css">
+    
+        /*inside of the -style- you must write in CSS*/
+
+        /*there are THREE ways to select elements to style*/ 
+        /*BY ELEMENT (TAG)  TYPE*/ 
+
+        body {
+
+            background-color:grey;
+            color:white; /*FONT color*/
+            background-image:url(images/body_bg.png);
+        }
+
+        h2 {
+
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    
+
+        p {
+            font-size:16pt;
+        }
+
+        /*style by CLASS -- a collection of elements that have the same class="" value*/
+        .group {
+
+            color:rgb(0, 0, 0);
+
+        }
+
+        /*style a specific element by ID */
+        #batmobile {
+
+            border:5px solid #ffffff;/*hexadecimal color*/
+        }
+
+
+    </style>
+
+
 </head>
 <body>
     <!--This is how you write HTML comments-->
@@ -12,18 +55,18 @@
     <!--BLOCK LEVEL ELEMENTS: create page structure, always start on new lines, and span the width of the entire page-->
 
     <!--Heading Tags (there are 6)-->
-    <h1>Heading 1</h1><!--biggest! only ONE h1 per page allowed!-->
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <h4>Heading 4</h4>
-    <h5>Heading 5</h5>
-    <h6>Heading 6</h6><!--smallest-->
+    <h1 style="border:1px solid red;">Heading 1</h1><!--biggest! only ONE h1 per page allowed!-->
+    <h2 style="background-color:orange;">Heading 2</h2>
+    <h3 style="border:1px solid yellow;">Heading 3</h3>
+    <h4 style="background-color:green;">Heading 4</h4>
+    <h5 style="border:1px solid blue;">Heading 5</h5>
+    <h6 style="background-color:indigo;">Heading 6</h6><!--smallest-->
     
     <!--below is a horizontal rule which is another block level element -->
     <hr>
 
     <!--inserting images-->
-    <img src="images/batmobile.jpg" alt="wacky cool batmobile image" title="COWABUNGA BATMAN!" />
+    <img src="images/batmobile.jpg" alt="wacky cool batmobile image" title="COWABUNGA BATMAN!" id="batmobile"/>
     <!--src attribute describes where the image file is-->
     <!--alt attribute helps SEO as well as utilized by those who use screen readers-->
     <img src="images/car.jpg" alt="futuristic concept car" />
@@ -35,14 +78,14 @@
     <ol>
         <!--list items add something to the list-->
         <li>Game of Thrones</li>
-        <li>Black Sails</li>
+        <li class="group">Black Sails</li>
         <li>Lord of the Rings</li>
 
     </ol>
 
     <!--unordered lists are bulleted-->
     <ul>
-        <li>Cowboy Bebop</li>
+        <li class="group">Cowboy Bebop</li>
         <li>Samurai Champloo</li>
         <li>Aeon Flux</li>
     </ul>
@@ -52,6 +95,27 @@
         <li>Bop</li>
         <li>Boop</li>
     </ul>
+
+    <!--paragraph tag: also a block level element-->
+
+    <p>Wafer cupcake soufflé. Ice cream marzipan macaroon. Cotton candy jelly pastry jelly-o donut. Lemon drops cake <span id="orange">chupa chups</span> tart biscuit chupa chups croissant brownie. </p>
+        
+    <!--breakspace-->
+    <br>
+    <br>
+
+    <p class="group">Dragée macaroon croissant macaroon croissant muffin wafer macaroon jelly. Sweet roll jujubes wafer chupa chups pastry. Chupa chups tootsie roll tart macaroon soufflé fruitcake tiramisu. Cotton candy icing biscuit <br>bear claw chocolate jelly pudding.</p>
+
+    <!--IN LINE TAGS-->
+    <!--these are NOT block level tags, they are used in-line with other elements (usually used inside of <p>)-->
+
+    <p>We can make text <b>bold</b> using the bold tag.</p>
+    <p class="group">We can make text <i>italic</i> using the italic tag.</p>
+    <p>We can make text <u>underlined</u> using the underline tag.</p>
+
+    <!--special SEO inline tags-->
+    <p>We can also make text <strong>bold</strong> using the strong tag.</p>
+    <p>We can also make text <em>italiczed</em> using the emphasis tag.</p>
 
 
 </body>
