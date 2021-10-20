@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3 | Demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+    <div id="fixed"></div>
+    <div id="top"></div>
+    <!--In the index.html body element, create a div with an id of "wrapper" -->
+    <div id="wrapper">
+        <div id="main-header">
+        <!--Inside of the #wrapper div, create an h1 tag that includes the following text content: Week 3 | Demo -->
+            <h1>Week 3 | <a href="https://www.google.com" target="_blank">Demo</a></h1>
+
+            <!--Below the h1, create a div with an id of "main-nav"-->
+            <div id="main-nav">
+
+                <!--Inside of the #main-nav, create three anchor tags, each with a class of "btn"-->
+                <!--Give the anchor tags the text content for external page links: About, Hobbies, and Schools-->
+                <a class="btn" href="index.html">Home</a>
+                <a class="btn" href="hobbies.html">Hobbies</a>
+                <a class="btn" href="schools.html">Schools</a>
+            
+            </div><!--/ #main-nav-->
+        </div><!--/ #main-header-->
+        <!--Below the #main-nav, create a div with a class of "section"-->
+        <div class="section">
+
+            <!--Inside of this .section div, create an h2 with a class of "section-title" and an id of "about" that holds the text: About Me-->
+            <h2 id="about"> About Me</h2>
+            <!--Below this h2, add the starwars.jpg image using the image tag-->
+            <img src="images/bio.jpg" alt="Gibson Guitar close-up" />
+            <!--Below the image, add a paragraph tag with a class of "txt" and have it hold one paragraph from the dummy text file-->
+            <p class="txt">blah blah blah</p>
+            <!--Add another paragraph tag below the first, also with a class of "txt" and have it hold one paragraph from the dummy text file-->
+            <p class="txt">blah <a href="https://www.google.com">blah</a>blah</p>
+
+        </div><!--/ .section-->
+
+            
+        <!--Below this .section div, repeat steps 7 - 10 two times, once for a Hobbies section and another for Schools. Do not include images in these two new sections, and instead of using paragraph tags, include a list (unordered for Hobbies and ordered for Schools)-->
+
+        <div class="section">
+
+            <!--Inside of this .section div, create an h2 with a class of "section-title" and an id of "about" that holds the text: About Me-->
+            <h2 id="about"> Hobbies</h2>
+            
+            <ul>
+                <li>Cowboy Bebop</li>
+                <li>Samurai Champloo</li>
+                <li>Aeon Flux</li>
+            </ul>
+
+             
+        
+        </div><!--/ .section-->
+
+        <div class="section">
+
+            <!--Inside of this .section div, create an h2 with a class of "section-title" and an id of "about" that holds the text: About Me-->
+            <h2 id="about"> Schools</h2>
+           
+            <ol>
+                <li>NEIT, MSIT</li>
+                <li>MECA, BFA Photography</li>
+                <li>NHS</li>
+            </ol>
+        </div> <!--/ .section-->
+
+        <!--Below the schools section, create a final div with an id of "footer"-->
+        <div id="footer">
+            <!--Inside of the #footer, add a paragraph tag that holds the copywrite symbol, the year, the class name, and your name-->
+            <a href="#top">Back to Top</a>
+            <p>&copy; 2021 | GDS111.21 | K TRUCHON</p>
+
+        </div> <!--#footer-->
+
+    </div><!--/ #wrapper-->
+  
+</body>
+</html>
