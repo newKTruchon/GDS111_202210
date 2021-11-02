@@ -1,0 +1,23 @@
+/*six-shooter demo file*/
+
+/*styling to see the elements on the gate page*/
+#wrapper {
+
+    width:980px;
+    margin:auto;
+
+}
+div {
+
+    border:1px solid red;
+    margin:10px;
+    padding:10px;
+}
+
+footer {
+    text-align:center;
+}
+
+header {
+    text-align:center;
+}

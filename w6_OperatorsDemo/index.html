@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Operators Demo</title>
+    <!--link to external CSS file-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!--link to the external JS file-->
+    <script type="text/javascript" src="demo.js"></script>
+</head>
+<body onload="updatescreen();">
+
+    <div id="wrapper">
+
+        <header>
+            <!--could use heading below or impress KT with a custom graphic!-->
+            <h1>Six Shooter | Gun Program</h1>
+            <!-- (but you WILL need some sort of image below this h1 for the heading on your assignment) -->
+        </header>
+
+        <!--div box that holds the target image (make your own or pull one from online)-->
+        <div id="target">
+            <img src="images/?.jpg/.png" alt="" />
+        </div><!--/ #target-->
+
+        <!--nav box that holds info and buttons for game!-->
+        <nav>
+            <!--left info box-->
+            <section id="left">
+
+                <!--ammo cache-->
+                <div id="total-ammo"></div>
+
+                <!--current ammo-->
+                <div id="current-ammo"></div>
+
+            </section><!--/ #left-->
+
+            <!--right info box: for BUTTON control-->
+            <div id="right">
+
+                <form>
+
+                    <p class="btn"><!--shoot button-->
+                        <input type="button" value="SHOOT" class="shoot" onclick="shoot();"/>
+                    </p>
+
+                    <p class="btn"><!--reload button-->
+                        <input type="button" value="RELOAD" class="reload" onclick="reload();"/>
+                    </p>
+                    
+                </form>
+
+            </div><!--/ #right-->
+
+        </nav><!--/nav-->
+
+        <footer>
+            <p class="copy">&copy; 2021 | HTML & Javascript | KTRUCHON</p>
+        </footer>
+
+    </div><!--/ #wrapper-->
+
+    <!--HTML 5 AUDIO PLAYERS GO BELOW THIS LINE BUT INSIDE OF THE BODY! [ yes, sound :D ]-->
+    
+</body>
+</html>
