@@ -3,19 +3,42 @@ body {
     background-color: black;
     background-image:url(images/fog.png)
 }
-/*styling to see the elements on the gate page*/
+/*styling to see the elements on the gate and gun page*/
 #wrapper {
     
     width:980px;
     margin:auto;
     position:relative;
-    top:75px;
+    top:5px;
+
 }
 div {
 
     border:1px solid red;
     margin:10px;
     padding:10px;
+}
+
+h1 {
+
+    font-family: 'Permanent Marker', cursive;
+    font-size:66px;
+
+}
+
+#target {
+
+    width:900px;
+    margin:auto;
+    position:relative;
+    
+
+}
+
+#jason {
+    width:500px;
+    position:relative;
+    left:192px;
 }
 
 footer {
@@ -57,6 +80,7 @@ nav {
     width:960px;
     margin:auto;
     height:250px;
+   
 }
 #left {
 
@@ -67,25 +91,25 @@ nav {
 
 #total-ammo {
 
-    height:200px;
+    height:150px;
     margin-bottom: 10px;
     float:left;
     width: 40%;
     font-size:40px;
     text-align:center;
-    line-height:200px;
+    line-height:150px;
 
 }
 
 #current-ammo {
 
-    height:200px;
+    height:150px;
     margin-bottom: 10px;
     float:right;
     width:40%;
     font-size:40px;
     text-align:center;
-    line-height:200px;
+    line-height:150px;
 
 }
 
@@ -95,6 +119,30 @@ nav {
     float:right;
 
 }
+
+#titles {
+
+    width:75%;
+    margin:auto;
+    border:none;
+    font-family: "Permanent Marker", cursive;
+    font-size:18px;
+
+}
+
+#title-left{ 
+
+    float:left;
+    
+
+}
+
+#title-right{ 
+
+    float:right;
+
+}
+
 
 footer {
 

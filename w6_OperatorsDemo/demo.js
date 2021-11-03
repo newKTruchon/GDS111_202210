@@ -20,6 +20,12 @@ function shoot() {
         //faster way
         currentAmmo-- //decrementation; minus 1
 
+        //adding in play function for sound
+        document.getElementById("gun").play();
+
+        //gun sound will play as fast as you hit the trigger by setting it back to zero each time you shoot
+        document.getElementById("gun").currentTime = 0;
+
     }//if ends HERE
 
     //once the if statement code has run, update the screen
@@ -54,6 +60,12 @@ function reload() {
     //once getDiff() does its job, it returns 'c' to where it was called
     //REMEMBER: storage ( = ) happens from right to left!
     var difference = getDiff(maxAmmo, currentAmmo) //getDiff(a = maxAmmo, b = currentAmmo)
+
+    if (difference > 0 && totalAmmo != 0) {
+
+        document.getElementById("reload").play();
+    }
+
 
     if (totalAmmo >= difference) {
 

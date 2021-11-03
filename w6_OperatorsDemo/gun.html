@@ -7,6 +7,9 @@
     <title>JS Operators Demo</title>
     <!--link to external CSS file-->
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <!--link to the external JS file-->
     <script type="text/javascript" src="demo.js"></script>
@@ -23,7 +26,7 @@
 
         <!--div box that holds the target image (make your own or pull one from online)-->
         <div id="target">
-            <img src="images/?.jpg/.png" alt="" />
+            <img src="images/targetPic.jpg" alt="jason's gonna getchya" id="jason"/>
         </div><!--/ #target-->
 
         <!--nav box that holds info and buttons for game!-->
@@ -31,11 +34,17 @@
             <!--left info box-->
             <section id="left">
 
+                <div id="titles">
+
+                    <h3 id="title-left">Total Ammo</h3>
+                    <h3 id="title-right">Current Ammo</h3>
+
+                </div>
                
                     <!--ammo cache-->
                     
                     <div id="total-ammo"></div>
-
+                
                 
                 
                 
@@ -72,6 +81,18 @@
     </div><!--/ #wrapper-->
 
     <!--HTML 5 AUDIO PLAYERS GO BELOW THIS LINE BUT INSIDE OF THE BODY! [ yes, sound :D ]-->
+
+    <audio id="gun" src="sounds/shot1.mp3">
+    
+        <p>Your browser sucks and doesn't know HTML5.</p>
+    
+    </audio>
+
+    <audio id="reload" src="sounds/reload1.mp3">
+    
+        <p>Your browser sucks and doesn't know HTML5.</p>
+    
+    </audio>
     
 </body>
 </html>
