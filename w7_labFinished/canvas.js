@@ -88,9 +88,9 @@ galaxy.onload = function() {
     //callback function loads the image and draws it to the canvas each time the page loads
     mario.onload = function () {
 
-        ctx.drawImage(mario, 600, 300, 40, 80)
-        /*MARIO IN THE CENTER OF THE PENTAGON
-        ctx.drawImage(mario, 630, 120, 40, 80)*/
+        //ctx.drawImage(mario, 600, 300, 40, 80)
+        //MARIO IN THE CENTER OF THE PENTAGON
+        ctx.drawImage(mario, 630, 120, 40, 80)
 
 
     }
