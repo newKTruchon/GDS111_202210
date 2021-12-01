@@ -26,6 +26,10 @@ function Ship() {
 
     this.draw = function() {
 
+        /*
+        DRAWING THE SHIP TO THE CANVAS (TRIANGLE)
+        -----------------------------------------
+
         //save the current state of the canvas
         context.save()
 
@@ -48,6 +52,27 @@ function Ship() {
         context.stroke()
         context.fill()
         context.restore()
+
+        */
+
+        //IMAGE AS THE SHIP (X-Wing)
+
+        var imageObj = new Image()
+        imageObj.src = "images/xwing.png" //PNG FOR TRANSPARENCY!
+
+        //save the current state of the canvas
+        context.save() 
+
+        //move the point of origin 0,0 to the ship's starting x and y coords
+        context.translate(this.x, this.y)
+
+        //draw the image to the canvas context 
+        //drawImage(image, x coord of top left corner, y coord of the top left corner, width of image, height of image) 
+        //RESOURCE: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage   |   https://www.w3schools.com/tags/canvas_drawimage.asp
+        context.drawImage(imageObj, -100, -50, 200, 100)
+        context.restore()
+
+
 
 
     }//Ship.draw()
