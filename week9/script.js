@@ -10,8 +10,13 @@ var timer = requestAnimationFrame(main)
 var gravity = 1
 var asteroids = new Array() 
 var numAsteroids = 10
-var gameOver = false 
+var gameOver = true 
 var score = 0 
+
+var gameStates = []
+var currentState = 0 
+var ship 
+
 
 //random value generator function -------------------RANDOM---------------
 function randomRange(high, low) {
@@ -42,14 +47,23 @@ function Asteroid() {
 
 }//Asteroid() CLOSE
 
-//for loop to make LOTS OF ASTEROIDS 
-for(var i = 0; i < numAsteroids; i++){
-    //i is the INDEX of the Array, this is a LOOP that runs while i is less than the value stored to numAsteroids, i++ means i grows +1 each time through the loop
 
-    asteroids[i] = new Asteroid() 
-    //each time through the loop, a new asteroid is created and saved in the asteroids array! 
+function gameStart() {
+    //for loop to make LOTS OF ASTEROIDS 
+    for(var i = 0; i < numAsteroids; i++){
+        //i is the INDEX of the Array, this is a LOOP that runs while i is less than the value stored to numAsteroids, i++ means i grows +1 each time through the loop
 
-}
+        asteroids[i] = new Asteroid() 
+        //each time through the loop, a new asteroid is created and saved in the asteroids array! 
+
+        //create the instance of the ship for the game 
+        ship = new PlayerShip()
+
+    }
+}//gameStart() CLOSE
+
+
+
 
 //function for the PLAYER'S SHIP------------------SHIP--------------------
 function PlayerShip() {
@@ -140,25 +154,56 @@ function PlayerShip() {
 }//PlayerShip() CLOSE
 
 //create the instance of the ship for the game 
-var ship = new PlayerShip()
+//var ship = new PlayerShip()
 
 document.addEventListener("keydown", keyPressDown)
 document.addEventListener("keyup", keyPressUp)
 
 //functions for the controls ---------------------------CONTROLS---------
 function keyPressDown(e) {
+    console.log("key press down()")
 
     //console.log("Key Down" + e.keycode) //tells you the keycodes!
-    if(e.keyCode === 38) {
-        ship.up = true
+
+    if(gameOver == false) {
+        if(e.keyCode === 38) {
+            ship.up = true
+        }
+        if(e.keyCode === 37) {
+            ship.left = true
+        }
+        if(e.keyCode === 39) {
+            ship.right = true
+        }
+        //not coding for down because ship don't go that way
     }
-    if(e.keyCode === 37) {
-        ship.left = true
+
+    if(gameOver == true) {
+        console.log("gameOver === true")
+
+        if(e.keyCode === 13) { //enter key!
+            console.log("recog enter key")
+            console.log("current state", currentState)
+            if(currentState == 2) {
+                console.log("current state is 2")
+                score = 0
+                numAsteroids = 10
+                asteroids = [] 
+                gameStart()
+
+                currentState = 0 
+            }
+
+            else {
+
+                gameStart()
+                gameOver = false 
+                currentState = 1 
+                setTimeout(scoreTimer, 1000)
+            }
+
+        }
     }
-    if(e.keyCode === 39) {
-        ship.right = true
-    }
-    //not coding for down because ship don't go that way
 
 }//keyPressDown() CLOSE
 
@@ -178,11 +223,22 @@ function keyPressUp(e) {
 
 }//keyPressUp() CLOSE
 
-//the main function! this makes it all happen!--------------MAIN---------
-function main() {
+//GAME STATES for: START MENU, GAMEPLAY, and GAME OVER
 
-    context.clearRect(0, 0, c.width, c.height)   
-    
+gameStates[0] = function() {//START SCREEN
+    context.save() 
+    context.font = "30px Arial"
+    context.fillStyle = "white"
+    context.textAlign = "center"
+    context.fillText("Asteroid Avoidance", c.width/2, c.height/2 - 30)
+    context.font = "15px Arial"
+    context.fillText("Press ENTER to Start!", c.width/2, c.height/2 + 20)
+    context.restore()
+}
+
+gameStates[1] = function() {//GAMEPLAY STATE
+
+    //paste code from main() for gameplay
     //display score 
     context.save() 
 
@@ -221,8 +277,10 @@ function main() {
         if(detectCollision(dist, (ship.h/2 + asteroids[i].radius))) {
             //console.log("secret stuff for W9D2")
             gameOver = true 
-            document.removeEventListener("keydown", keyPressDown)
-            document.removeEventListener("keyup", keyPressUp)
+            currentState = 2 //this replaces removeEventListener need
+
+            //document.removeEventListener("keydown", keyPressDown)
+            //document.removeEventListener("keyup", keyPressUp)
         }
 
         //checks to see if asteroid is offscreen 
@@ -248,6 +306,34 @@ function main() {
         asteroids.push(new Asteroid())
     }
 
+
+}
+
+gameStates[2] = function() {//GAME OVER STATE
+    context.save() 
+    context.font = "30px Arial"
+    context.fillStyle = "white"
+    context.textAlign = "center"
+    context.fillText("GAME OVER Your score was: " + score.toString(), c.width/2, c.height/2 - 30)
+    context.font = "15px Arial"
+    context.fillText("Press ENTER to Play Again!", c.width/2, c.height/2 + 20)
+    context.restore()
+
+
+}
+
+
+//the main function! this makes it all happen!--------------MAIN---------
+function main() {
+
+    context.clearRect(0, 0, c.width, c.height)   
+    
+    /*
+        where original gameplay code was 
+    */
+    gameStates[currentState]() //allows screen to follow the appropriate state
+    console.log("main hit")
+
     timer = requestAnimationFrame(main)
 
 }//main() CLOSE
@@ -265,7 +351,7 @@ function scoreTimer() {
 
 }//scoreTimer() CLOSE 
 
-scoreTimer()
+//scoreTimer()
 
 function detectCollision(distance, calcDistance) {
     return distance < calcDistance //will return TRUE or FALSE value
