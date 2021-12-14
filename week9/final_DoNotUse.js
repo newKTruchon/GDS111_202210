@@ -54,6 +54,7 @@ document.addEventListener("keydown", pressKeyDown)
 document.addEventListener("keyup", pressKeyUp)
 
 function pressKeyDown(e){
+    console.log("pressKeyDown()")
     if (!gameOver) {
         if (e.keyCode == 87) {
             ship.up = true

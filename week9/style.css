@@ -1,0 +1,34 @@
+/*GOOGLE FONTS -- once loaded, use the name as a font-family value!*/
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#container {
+    width:980px;
+    margin:auto;
+    padding:10px;
+    border:1px solid blue;
+}
+
+header, footer {
+
+    margin-top:10px;
+    margin-bottom:10px;
+    padding:10px;
+    text-align:center;
+
+    border:1px solid red;
+}
+
+header {
+    font-size:48px;
+}
+
+footer {
+    font-size:10px;
+}
+
+canvas {
+    margin-left:85px;
+}

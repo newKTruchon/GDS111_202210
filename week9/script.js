@@ -17,6 +17,20 @@ var gameStates = []
 var currentState = 0 
 var ship 
 
+//IMAGE SPRITES FOR GAME/*--------------------------------------ADDED for W10D1--------------*/
+var shipSprite = new Image()
+shipSprite.src = "images/ship.png"
+shipSprite.onload = function(){
+   
+}
+
+
+var asteroidSprite = new Image()
+asteroidSprite.src = "images/asteroidsprite.png"
+asteroidSprite.onload = function(){
+   
+}
+
 
 //random value generator function -------------------RANDOM---------------
 function randomRange(high, low) {
@@ -39,7 +53,8 @@ function Asteroid() {
         context.save()
         context.beginPath()
         context.fillStyle = this.color
-        context.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true)
+        //context.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true)
+        context.drawImage(asteroidSprite,this.x-this.radius,this.y-this.radius,this.radius*2,this.radius*2)
         context.closePath() 
         context.fill()
         context.restore()
@@ -110,9 +125,10 @@ function PlayerShip() {
             context.fill()
             context.restore()
 
-        }
+        }//end flame if statement nonsense
 
-        context.beginPath() 
+        context.fillStyle = "red" //ship color
+       /* context.beginPath() 
 
         context.fillStyle = "red" //flame color
         context.moveTo(0, -13)
@@ -121,8 +137,23 @@ function PlayerShip() {
         context.lineTo(0, -13)
         context.closePath()
         context.fill()
+        context.restore()*/
+        /*--------------------------------------ADDED for W10D1--------------*/
+    
+        context.drawImage(shipSprite,-20,-20,40,40)
+        console.log("shipSprite drawImage()")
+
+        /*FOR ASTEROID IMAGES -- this belongs in the this.drawAsteroid() in the Asteroid(): 
+
+               context.drawImage(asteroidSprite,this.x-this.radius,this.y-this.radius,this.radius*2,this.radius*2)
+
+               //above line REPLACES:
+               //context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true)
+        */
+
+        /*if(invincible) { .... do somethingssssss} :D */
         context.restore()
-    }
+    }//end this.draw() inside of PlayerShip()
 
     this.move = function () {
         this.x += this.vx 
@@ -227,11 +258,11 @@ function keyPressUp(e) {
 
 gameStates[0] = function() {//START SCREEN
     context.save() 
-    context.font = "30px Arial"
+    context.font = "30px Roboto Condensed"
     context.fillStyle = "white"
     context.textAlign = "center"
     context.fillText("Asteroid Avoidance", c.width/2, c.height/2 - 30)
-    context.font = "15px Arial"
+    context.font = "15px Roboto Condensed"
     context.fillText("Press ENTER to Start!", c.width/2, c.height/2 + 20)
     context.restore()
 }
@@ -242,7 +273,7 @@ gameStates[1] = function() {//GAMEPLAY STATE
     //display score 
     context.save() 
 
-    context.font = "15px Arial"     //make your own later!
+    context.font = "15px Roboto Condensed"     //make your own later!
     context.fillStyle = "white"     
     context.fillText("Score: " + score.toString(), c.width - 150, 30)
     context.restore() 
@@ -311,11 +342,11 @@ gameStates[1] = function() {//GAMEPLAY STATE
 
 gameStates[2] = function() {//GAME OVER STATE
     context.save() 
-    context.font = "30px Arial"
+    context.font = "30px Roboto Condensed"
     context.fillStyle = "white"
     context.textAlign = "center"
     context.fillText("GAME OVER Your score was: " + score.toString(), c.width/2, c.height/2 - 30)
-    context.font = "15px Arial"
+    context.font = "15px Roboto Condensed"
     context.fillText("Press ENTER to Play Again!", c.width/2, c.height/2 + 20)
     context.restore()
 
@@ -334,7 +365,10 @@ function main() {
     gameStates[currentState]() //allows screen to follow the appropriate state
     console.log("main hit")
 
+    //if(!gameOver) {/*--------------------------------------ADDED for W10D1--------------*/
+
     timer = requestAnimationFrame(main)
+   // }
 
 }//main() CLOSE
 
